@@ -24,3 +24,20 @@ por ejemplo @yield('cabecera')y en la vista donde queramos reutilizar eso emplea
 Esto se usa para dar una estructura pareja a un proyecto sin tener que repetir codigo
 Usando @include podemos agregar otros elementos a nuestra plantilla o vista
 por ejemplo  @include('layouts.navbar')
+
+MIGRACIONES
+Para crear tablas en bases de datos usando laravel se requieren 3 pasos
+1.Crear el archivo Migrations
+2.Configurar el archivo migrations
+3.Ejecutar php artisan migrate
+Si ejecutamos este comando iniciando, se crearan 3 tablas ya que laravel viene con 3 archivos 
+predeterminados (user, resetpasswords y failedjobs)
+para crear una migracion personalizada usamos
+php artisan make:migration create_articulos_table --create="articulos"
+el crea el up y el down con campos por defecto (id y timestamps), ya nosotros
+agregamos los que falten
+php artisan rollback es un control+z(regresa una migracion hacia atras)
+php artisan make:migration agregar_seccion_articulos --table=articulos (esto sirve para modificar la tabla articulos)
+con el comando anterior podemos ir a esa migracion y agregar campos en el metodo up y usar dropColumn en el metodo down
+php artisan migrate:refresh  hace rollingback a todo y vuelve y hace migraciones
+
