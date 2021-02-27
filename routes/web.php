@@ -49,3 +49,5 @@ Route::get('/','MiController@index');
 Route::get('/articulos', 'MiController@store');
 Route::get('/mostrar/{id}', 'MiController@show');
 Route::get('/crear', 'MiController@create');
+Route::get('/contacto','MiController@contactar');
+Route::get('/galeria','MiController@galeria');

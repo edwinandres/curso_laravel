@@ -86,4 +86,30 @@ class MiController extends Controller
     {
         //
     }
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function contactar()
+    {
+        //
+        return view('contacto');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function galeria()
+    {
+        //
+        //$galeria = ['Edwin', 'Andres', 'Roman', 'Henao'];
+        $galeria = [];
+        return view('galeria', compact('galeria'));
+    }
 }

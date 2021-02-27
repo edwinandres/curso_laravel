@@ -14,3 +14,13 @@ php artisan route:list --name=posts //trae solo las rutas de posts
 BOOTSTRAP
 Para este proyecto se descagaron js y css de bootstrap y se incluyeron en la
 ruta public/assets
+
+BLADE   
+Blade es un motor de plantillas, viene siendo un modelo para las plantillas, 
+pero nosotros podemos crear nuestra propia estructura para las plantillas(layout)
+En la plantilla usamos la palabra @yield para hacer una seccion reutilizable
+por ejemplo @yield('cabecera')y en la vista donde queramos reutilizar eso empleamos
+@section('cabecera) y cerramos con @endsection. 
+Esto se usa para dar una estructura pareja a un proyecto sin tener que repetir codigo
+Usando @include podemos agregar otros elementos a nuestra plantilla o vista
+por ejemplo  @include('layouts.navbar')
