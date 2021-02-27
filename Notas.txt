@@ -9,3 +9,8 @@ RUTAS
 php artisan route:list //muestra una lista completa de todas las rutas de nuestro proyecto  
 php artisan route:list --method=GET -r //la r dice que las traiga en orden desc(reverse)
 php artisan route:list --name=posts //trae solo las rutas de posts
+
+
+BOOTSTRAP
+Para este proyecto se descagaron js y css de bootstrap y se incluyeron en la
+ruta public/assets

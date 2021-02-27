@@ -81,11 +81,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Mostrar
                 </div>
 
                 <div class="links">
-                    <p>Estas en quienesSomos</p>
+                    <p>Estas en el foro</p>
                 </div>
             </div>
         </div>

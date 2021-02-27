@@ -8,10 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
         <!-- Styles -->
         <style>
-            html, body {
+           /* html, body {
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
@@ -60,7 +59,7 @@
 
             .m-b-md {
                 margin-bottom: 30px;
-            }
+            }*/
         </style>
     </head>
     <body>
@@ -81,13 +80,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Articulos
                 </div>
 
                 <div class="links">
-                    <p>Estas en el foro</p>
+                    <p>Estas en quienesSomos</p>
                 </div>
             </div>
         </div>
+
     </body>
 </html>
