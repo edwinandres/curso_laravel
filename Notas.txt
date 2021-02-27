@@ -41,3 +41,9 @@ php artisan make:migration agregar_seccion_articulos --table=articulos (esto sir
 con el comando anterior podemos ir a esa migracion y agregar campos en el metodo up y usar dropColumn en el metodo down
 php artisan migrate:refresh  hace rollingback a todo y vuelve y hace migraciones
 
+RAW SQL
+sql convencional , metodos estaticos, es mas comodo usar ORM ELOQUENT
+los nombres de los campos  en la base de datos deben usar solo minusculas
+
+ORM ELOQUENT
+OBJECT RELATIONAL MAPPING (Mapeo de objetos relacional)

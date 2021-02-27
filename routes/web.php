@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,3 +53,23 @@ Route::get('/mostrar/{id}', 'MiController@show');
 Route::get('/crear', 'MiController@create');
 Route::get('/contacto','MiController@contactar');
 Route::get('/galeria','MiController@galeria');
+
+Route::get('/insertar', function(){ 
+    DB::insert("INSERT INTO articulos (NOMBRE_ARTICULO,PRECIO,PAIS_ORIGEN,SECCION,OBSERVACIONES)
+     VALUES (?,?,?,?,?)", ["Jarron", 15.2, "Japon", "ceramica", "ganga"]);
+});
+
+Route::get('/leer', function(){
+    $resultados = DB::select("SELECT * FROM articulos WHERE ID=?",[1]);
+    foreach($resultados as $articulo){
+        return $articulo->nombre_articulo;
+    }
+});
+
+Route::get('/actualizar', function(){
+    DB::update("UPDATE articulos SET seccion='Decoracion' WHERE id=?",[1]);
+});
+
+Route::get('/borrar', function(){
+    DB::delete("DELETE FROM articulos WHERE id=?",[1]);
+});
