@@ -1,0 +1,11 @@
+CONTROLLERS 
+Para crear controladores se puede creando una archivo manualmente o tambien se puede
+mediante php artisan asi : 
+
+php artisan make:controller EjemploController
+php artisan make:controller --resource EjemploController(crea metodos por defecto: index, create, store, show, edit, update, destroy)
+
+RUTAS 
+php artisan route:list //muestra una lista completa de todas las rutas de nuestro proyecto  
+php artisan route:list --method=GET -r //la r dice que las traiga en orden desc(reverse)
+php artisan route:list --name=posts //trae solo las rutas de posts
