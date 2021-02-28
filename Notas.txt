@@ -12,6 +12,7 @@ php artisan route:list --name=posts //trae solo las rutas de posts
 
 MODELOS  
 php artisan make:model Cliente --migration
+php artisan make:model Cliente -m //es lo mismo que la linea de arriba
 
 
 BOOTSTRAP

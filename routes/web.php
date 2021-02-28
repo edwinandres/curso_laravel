@@ -3,8 +3,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Articulo;
 use App\Cliente;
-
-
+use Facade\FlareClient\Http\Client;
 
 /*
 |--------------------------------------------------------------------------
@@ -174,4 +173,15 @@ Route::get('/articulo/{id}/cliente', function ($id) {
 //RELACIONES UNO A MUCHOS
 Route::get('/cliente/{id}/articulos', function ($id) {
     return Cliente::find($id)->articulos;
+});
+
+
+//RELACION DE MUCHOS A MUCHOS
+
+Route::get('/cliente/{id}/perfil', function ($id) {
+    //$perfiles = Cliente::find($id)->perfiles;
+    $cliente = Cliente::find($id);
+    foreach($cliente->perfiles as $perfil){
+        echo $perfil->nombre.'<br>';
+    }
 });

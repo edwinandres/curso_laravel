@@ -22,4 +22,15 @@ class Cliente extends Model
     public function articulos(){
         return $this->hasMany('App\Articulo', 'cliente_id', 'id');
     }
+
+    public function perfiles(){
+        /**
+         * 1.Modelo a relacionar
+         * 2.Nombre de la tabla pivot
+         * 3.id de esta tabla dentro de pivot
+         * 4.id de la tabla a relacionar dentro de pivot
+         * Aunque si se siguen las recomendaciones de laravel, solo haria faltal el modelo
+         */
+        return $this->belongsToMany('App\Perfil', 'cliente_perfil', 'cliente_id', 'perfil_id' );
+    }
 }
