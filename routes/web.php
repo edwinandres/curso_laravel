@@ -63,14 +63,14 @@ Route::get('/insertar', function(){
 });
 
 Route::get('/leer', function(){
-    $resultados = DB::select("SELECT * FROM articulos WHERE ID=?",[1]);
+    $resultados = DB::select("SELECT * FROM articulos WHERE ID=?",[4]);
     foreach($resultados as $articulo){
         return $articulo->nombre_articulo;
     }
 });
 
 Route::get('/actualizar', function(){
-    DB::update("UPDATE articulos SET seccion='Decoracion' WHERE id=?",[1]);
+    DB::update("UPDATE articulos SET seccion='Decoracion' WHERE id=?",[2]);
 });
 
 Route::get('/borrar', function(){
@@ -91,3 +91,73 @@ Route::get('/read2', function(){
     $articulos = Articulo::min('precio');
     return $articulos;
 });
+
+
+Route::get('/insertarDatos', function(){
+
+    //se instancia el modelo
+   $articulos = new Articulo;
+   //se agregan los atributos
+   $articulos->nombre_articulo = "pantalones";
+   $articulos->precio = 343.235432;
+   $articulos->pais_origen = "India";
+   $articulos->seccion = "Ropa";
+   $articulos->observaciones = "Ropa de hombre";
+
+   //se invoca el metodo save
+   $articulos->save();
+
+});
+
+Route::get('/actualizarDatos', function(){
+
+    //se instancia el modelo
+   $articulos = Articulo::find(8);
+   //se agregan los atributos
+   $articulos->nombre_articulo = "Pantalones de moda";
+   $articulos->precio = 343.235432;
+   $articulos->pais_origen = "India";
+   $articulos->seccion = "Ropa";
+   $articulos->observaciones = "Ropa de hombre";
+
+   //se invoca el metodo save
+   $articulos->save();
+
+});
+
+Route::get('/read3', function () {
+    $articulos = Articulo::where('pais_origen','china')->get();
+    return $articulos;
+});
+
+
+//actualizar varios registros a la vez
+
+Route::get('actualizarVarios', function () {
+    //en el where va el criterio y el valor actual
+    //en el update va el criterio y el valor a actualizar(dentro de un array asociativo)
+    Articulo::where('seccion','ceramica')->update(['seccion'=>'menaje']);
+    //podemos usar tantos where como queramos
+    Articulo::where('seccion','menaje')->where('pais_origen','Japon')->update(['precio'=>1000]);
+});
+
+Route::get('/borrar', function () {
+    //para eliminar datos tambien podemos usar tantos where como queramos
+    Articulo::where('id',6)->delete();
+    Articulo::where('seccion','decoracion')->delete();
+});
+
+Route::get('/insertarVarios', function () {
+    Articulo::create(['nombre_articulo'=>'gorra','pais_origen'=>'Mexico','precio'=>'700','seccion'=>'ropa','observaciones'=>'Ninguna']);
+});
+
+Route::get('/softdelete', function () {
+    Articulo::find(4)->delete();
+});
+
+//para leer articulos borrados
+Route::get('/leersoft', function () {
+    $articulos = Articulo::withTrashed()->where('id',4)->get();
+    return $articulos;
+});
+

@@ -52,3 +52,15 @@ letra en mayusculas ejemplo para la tabla articulos el modelo se crea asi:
 php artisan make:model Articulo
 si no lo hace asi , se puede asignar en el modelo asi:
 protected $table="nombredelatabla"
+Para insertar tenemos los metodos create y save
+con el metodo save primero instanciamos , agregamos los campos a la instancia y ejecutamos save sobre esa instancia
+para el metodo create usamos un array asociativo
+para eliminar delete, actualizar update. Para encontrar tenemos find, where, all
+
+El softdelete necesita importar el sofdelete, dentro de la clase asignar a dates la columna deleted_at y crear ese campo
+en la tabla(para esto ultimo se recomienda crear una migracion asi : 
+php artisan make:migration add_deleted_at_column_to_articulos_table --table=articulos)
+El registro no se borra de la base de datos , sino que se le crea un valor en la columna deleted_at
+y si lo buscamos el no lo mostrara a menos que utilicemos el metodo withTrashed
+podemos restablecer el registro borrado usando el metodo restore
+para borrar definitivamente un campo definido como softdelete usamos el metodo hardDelete
