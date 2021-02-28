@@ -33,4 +33,13 @@ class Cliente extends Model
          */
         return $this->belongsToMany('App\Perfil', 'cliente_perfil', 'cliente_id', 'perfil_id' );
     }
+
+    public function calificaciones(){
+        /**
+         * 1.Modelo de la tabla morph 
+         * 2.La funcion de morph que se creo en ese modelo
+         * 
+         */
+        return $this->morphMany('App\Calificacion','calificacion');
+    }
 }

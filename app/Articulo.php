@@ -32,4 +32,12 @@ class Articulo extends Model
          */
         return $this->belongsTo('App\Cliente','cliente_id', 'id');
     }
+    public function calificaciones(){
+        /**
+         * 1.Modelo de la tabla morph 
+         * 2.La funcion de morph que se creo en ese modelo
+         * 
+         */
+        return $this->morphMany('App\Calificacion','calificacion');
+    }
 }

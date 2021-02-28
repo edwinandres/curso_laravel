@@ -185,3 +185,20 @@ Route::get('/cliente/{id}/perfil', function ($id) {
         echo $perfil->nombre.'<br>';
     }
 });
+
+//RELACIONES POLIMORFICAS 
+
+Route::get('/calificaciones', function () {
+    $cliente = Cliente::find(1);
+    foreach($cliente->calificaciones as $calificacion){
+        echo $calificacion->calificacion;
+    }
+});
+
+
+Route::get('/calificaciones2', function () {
+    $articulo = Articulo::find(5);
+    foreach($articulo->calificaciones as $calificacion){
+        echo $calificacion->calificacion;
+    }
+});
