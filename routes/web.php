@@ -84,3 +84,10 @@ Route::get('/read', function(){
         echo $articulo->nombre_articulo.' '.$articulo->precio.'<br>';
     }
 });
+
+
+Route::get('/read2', function(){
+    //$articulos = Articulo::where('observaciones','ganga')->take(1)->get();
+    $articulos = Articulo::min('precio');
+    return $articulos;
+});
