@@ -10,6 +10,9 @@ php artisan route:list //muestra una lista completa de todas las rutas de nuestr
 php artisan route:list --method=GET -r //la r dice que las traiga en orden desc(reverse)
 php artisan route:list --name=posts //trae solo las rutas de posts
 
+MODELOS  
+php artisan make:model Cliente --migration
+
 
 BOOTSTRAP
 Para este proyecto se descagaron js y css de bootstrap y se incluyeron en la
@@ -64,3 +67,10 @@ El registro no se borra de la base de datos , sino que se le crea un valor en la
 y si lo buscamos el no lo mostrara a menos que utilicemos el metodo withTrashed
 podemos restablecer el registro borrado usando el metodo restore
 para borrar definitivamente un campo definido como softdelete usamos el metodo hardDelete
+
+RELACIONES ENTRE TABLAS
+Debemos crear las relaciones dentro de los modelos de laravel
+Estos modelos tienen unos metodos para poder definir el tipo de relacion, ya sea 
+uno a uno, uno a muchos , muchos a muchos
+En una relacion de uno a uno solo hace falta definir la relacion en la tabla que va a tener
+su id dentro de la otra tabla.Pero tambien hay relaciones invertidas

@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Articulo;
+use App\Cliente;
 
 
 
@@ -159,5 +160,9 @@ Route::get('/softdelete', function () {
 Route::get('/leersoft', function () {
     $articulos = Articulo::withTrashed()->where('id',4)->get();
     return $articulos;
+});
+
+Route::get('/clientes/{id}/articulo', function ($id) {
+    return Cliente::find($id)->articulo;
 });
 
