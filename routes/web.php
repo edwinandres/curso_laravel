@@ -162,7 +162,8 @@ Route::get('/leersoft', function () {
     return $articulos;
 });
 
-Route::get('/clientes/{id}/articulo', function ($id) {
+//RELACIONES UNO A UNO
+Route::get('/cliente/{id}/articulo', function ($id) {
     return Cliente::find($id)->articulo;
 });
 
@@ -170,3 +171,7 @@ Route::get('/articulo/{id}/cliente', function ($id) {
     return Articulo::find($id)->cliente->nombre;
 });
 
+//RELACIONES UNO A MUCHOS
+Route::get('/cliente/{id}/articulos', function ($id) {
+    return Cliente::find($id)->articulos;
+});

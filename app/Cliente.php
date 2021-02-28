@@ -18,4 +18,8 @@ class Cliente extends Model
          */
         return $this->hasOne('App\Articulo' ,'cliente_id', 'id');
     }
+
+    public function articulos(){
+        return $this->hasMany('App\Articulo', 'cliente_id', 'id');
+    }
 }
