@@ -47,3 +47,8 @@ los nombres de los campos  en la base de datos deben usar solo minusculas
 
 ORM ELOQUENT
 OBJECT RELATIONAL MAPPING (Mapeo de objetos relacional)
+se usan modelos el modelo debe llamarse igual a la tabla pero en singular y con la primera
+letra en mayusculas ejemplo para la tabla articulos el modelo se crea asi:
+php artisan make:model Articulo
+si no lo hace asi , se puede asignar en el modelo asi:
+protected $table="nombredelatabla"

@@ -1,5 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\Articulo;
 
 
 
@@ -54,6 +56,7 @@ Route::get('/crear', 'MiController@create');
 Route::get('/contacto','MiController@contactar');
 Route::get('/galeria','MiController@galeria');
 
+//OPERACIONES CON RAW SQL
 Route::get('/insertar', function(){ 
     DB::insert("INSERT INTO articulos (NOMBRE_ARTICULO,PRECIO,PAIS_ORIGEN,SECCION,OBSERVACIONES)
      VALUES (?,?,?,?,?)", ["Jarron", 15.2, "Japon", "ceramica", "ganga"]);
@@ -72,4 +75,12 @@ Route::get('/actualizar', function(){
 
 Route::get('/borrar', function(){
     DB::delete("DELETE FROM articulos WHERE id=?",[1]);
+});
+
+//CONSULTAS USANDO ELOQUENT
+Route::get('/read', function(){
+    $articulos = Articulo::all();
+    foreach($articulos as $articulo){
+        echo $articulo->nombre_articulo.' '.$articulo->precio.'<br>';
+    }
 });
