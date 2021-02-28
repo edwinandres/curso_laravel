@@ -23,4 +23,13 @@ class Articulo extends Model
         'seccion',
         'observaciones'
     ];
+
+    public function cliente(){
+        /**
+         * 1.Clase a la que conecta 
+         * 2.Foreignkey
+         * 3.ownerkey 
+         */
+        return $this->belongsTo('App\Cliente','cliente_id', 'id');
+    }
 }

@@ -166,3 +166,7 @@ Route::get('/clientes/{id}/articulo', function ($id) {
     return Cliente::find($id)->articulo;
 });
 
+Route::get('/articulo/{id}/cliente', function ($id) {
+    return Articulo::find($id)->cliente->nombre;
+});
+

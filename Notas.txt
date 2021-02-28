@@ -73,4 +73,7 @@ Debemos crear las relaciones dentro de los modelos de laravel
 Estos modelos tienen unos metodos para poder definir el tipo de relacion, ya sea 
 uno a uno, uno a muchos , muchos a muchos
 En una relacion de uno a uno solo hace falta definir la relacion en la tabla que va a tener
-su id dentro de la otra tabla.Pero tambien hay relaciones invertidas
+su id dentro de la otra tabla.Pero tambien hay relaciones inversas
+Para las relaciones inversas no se usa hasOne sino belongsTo, son complementarias la una
+con la otra 
+
